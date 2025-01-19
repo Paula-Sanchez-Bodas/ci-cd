@@ -1,0 +1,14 @@
+version: "3.9"
+name: ci-cd
+services:
+  vnu:
+    image: ghcr.io/validator/validator:latest
+    container_name: vnu
+    ports: [ "8888:8888" ]
+  web:
+    image: nginx:alpine
+    container_name: web
+    volumes: [ "./src:/usr/share/nginx/html:ro" ]
+    ports: [ "8080:80" ]
+
+
